@@ -1,0 +1,28 @@
+Algorithme CountLetterE
+
+Variables
+    ch : Caractère
+    compteur : Entier
+
+Début
+    // Initialize the counter to 0
+    compteur ← 0
+
+    Écrire("Enter a sentence character by character, ending with a point (.):")
+    Lire(ch)
+
+    // Loop until we reach the point
+    Tant que ch ≠ '.' Faire
+        
+        // Check if the character is 'e' or 'E'
+        Si ch = 'e' ou ch = 'E' Alors
+            compteur ← compteur + 1
+        FinSi
+
+        Lire(ch)  // Read the next character
+    FinTantque
+
+    // Display the final result
+    Écrire("The letter 'e' appeared this many times: ", compteur)
+
+Fin
