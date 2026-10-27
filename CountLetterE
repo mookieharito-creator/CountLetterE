@@ -1,28 +1,48 @@
-Algorithme CountLetterE
+Algorithme AnalysePhrase
 
 Variables
     ch : Caractère
-    compteur : Entier
+    longueur : Entier
+    nb_mots : Entier
+    nb_voyelles : Entier
 
 Début
-    // Initialize the counter to 0
-    compteur ← 0
+    // Initialisation des trois compteurs à 0
+    longueur ← 0
+    nb_mots ← 0
+    nb_voyelles ← 0
 
-    Écrire("Enter a sentence character by character, ending with a point (.):")
+    Écrire("Entrez une phrase caractère par caractère, se terminant par un point (.) :")
     Lire(ch)
 
-    // Loop until we reach the point
+    // Si le premier caractère n'est pas le point, la phrase contient au moins un mot
+    Si ch ≠ '.' Alors
+        nb_mots ← 1
+    FinSi
+
+    // Boucle jusqu'à l'atteinte du point final
     Tant que ch ≠ '.' Faire
         
-        // Check if the character is 'e' or 'E'
-        Si ch = 'e' ou ch = 'E' Alors
-            compteur ← compteur + 1
+        // 1. Incrémenter la longueur pour chaque caractère (le point est exclu car hors de la boucle)
+        longueur ← longueur + 1
+
+        // 2. Vérifier si le caractère est une voyelle (minuscules et majuscules)
+        Si ch = 'a' ou ch = 'e' ou ch = 'i' ou ch = 'o' ou ch = 'u' ou ch = 'y' ou 
+           ch = 'A' ou ch = 'E' ou ch = 'I' ou ch = 'O' ou ch = 'U' ou ch = 'Y' Alors
+            nb_voyelles ← nb_voyelles + 1
         FinSi
 
-        Lire(ch)  // Read the next character
+        // 3. Compter les mots (chaque espace indique qu'un nouveau mot commence)
+        Si ch = ' ' Alors
+            nb_mots ← nb_mots + 1
+        FinSi
+
+        Lire(ch)  // Lire le caractère suivant
     FinTantque
 
-    // Display the final result
-    Écrire("The letter 'e' appeared this many times: ", compteur)
+    // Afficher les résultats finaux demandés
+    Écrire("Longueur de la phrase : ", longueur)
+    Écrire("Nombre de mots : ", nb_mots)
+    Écrire("Nombre de voyelles : ", nb_voyelles)
 
 Fin
